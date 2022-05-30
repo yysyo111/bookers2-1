@@ -15,10 +15,18 @@ import "bootstrap";
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application"
 
+import jQuery from "jquery"
+import raty from 'raty-js'
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+global.$ = jQuery;
+window.$ = jQuery;
+
+// window.$ = window.jQuery = require('jquery');
+// require('packs/raty')
 
 
 // import Rails from "@rails/ujs"
