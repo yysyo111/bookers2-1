@@ -21,6 +21,7 @@
             <%= render 'favorites/favorite', book: @book %>
           </td>
           <td id="comments_number"><%= render 'book_comments/number', book: @book %></td>
+          <td><%= render 'static_rate', book: @book %></td>
           <td>
             <% if @user == current_user %>
             <%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %>
@@ -43,3 +44,9 @@
     </div>
   </div>
 </div>
+
+<p>タグ</p>
+<% @book_tags.each do |tag| %>
+  <%= link_to tag.name, search_tag_path(tag_id: tag.id) %> 
+  <%= "(#{tag.books.count})" %>
+<% end %> 
