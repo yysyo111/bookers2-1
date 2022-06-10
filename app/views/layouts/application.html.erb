@@ -13,6 +13,12 @@
       <main>
         <p id="notice"><%= notice %></p>
         <div class="d-flex justify-content-center mb-2">
+          <dl class="searchbox">
+            <%= search_form_for @search, url: books_path do |f| %>
+              <dt><%= f.text_field :body_cont , placeholder: '検索するテキストを入力...' %></dt>
+              <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+            <% end %>
+          </dl>
           <%= render 'searches/search' %>
         </div>
         <%= yield %>
@@ -20,3 +26,5 @@
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+

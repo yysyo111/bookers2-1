@@ -17,6 +17,13 @@
           </td>
           <td><%= link_to @book.title, @book %></td>
           <td><%= @book.body %></td>
+          <!--タグ検索機能実装-->
+          <td>
+            <% @book_tags.each do |tag| %>
+              <%= link_to tag.name, search_tag_path(tag_id: tag.id) %> 
+              <%= "(#{tag.books.count})" %>
+            <% end %> 
+          </td>
           <td id="favorites_buttons_<%= @book.id %>" >
             <%= render 'favorites/favorite', book: @book %>
           </td>
@@ -45,8 +52,3 @@
   </div>
 </div>
 
-<p>タグ</p>
-<% @book_tags.each do |tag| %>
-  <%= link_to tag.name, search_tag_path(tag_id: tag.id) %> 
-  <%= "(#{tag.books.count})" %>
-<% end %> 

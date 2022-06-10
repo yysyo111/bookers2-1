@@ -19,7 +19,10 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
-      <%= render 'index', books: @books%>
+       <p>カテゴリー</p>
+      <%= @categories.name %>
+      <%= render 'index', books: @search_books%>
     </div>
   </div>
 </div>
+

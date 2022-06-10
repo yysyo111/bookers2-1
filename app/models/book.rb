@@ -10,6 +10,8 @@ class Book < ApplicationRecord
   has_many :book_tags, dependent: :destroy
   has_many :tags, through: :book_tags
   
+  has_many :categories, dependent: :destroy
+  
   
   # 検索方法分岐
   def self.looks(search, word)

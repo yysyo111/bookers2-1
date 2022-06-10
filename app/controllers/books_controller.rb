@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
     @tag_list = Tag.all
+    @categories = Category.all
   end
 
   def create
@@ -58,7 +59,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :rate)
+    params.require(:book).permit(:title, :body, :rate, :category_id)
   end
 
 
@@ -70,4 +71,3 @@ class BooksController < ApplicationController
   end
 
 end
-
